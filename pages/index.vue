@@ -2,17 +2,19 @@
     <main class="main">
         <h1 class="heading">Todo Page</h1>
         <form class="input" @submit.prevent="addTodo">
-            <input 
+            <label for="new-task" class="visually-hidden">Add a new task</label>
+            <input
+                id="new-task" 
                 class="input__box" 
                 type="text" 
                 placeholder="Add new task" 
                 v-model="task"
             >
-            <button class="input__submit" type="submit">Go</button>
+            <button class="input__submit" type="submit">Add</button>
         </form>
         <section  class="todos">
             <template v-if="todoStore.todos.length <= 0">
-                <p class="todos__nothing">You have no tasks</p>
+                <p class="todos__nothing" role="status">You have no tasks</p>
             </template>
             <template v-else>
                     <div class="todos__single"
@@ -22,10 +24,10 @@
                     >
                         <label :for="'task-' + index">{{ item.name }}</label>
                         <div>
-                            <button class="icon" @click="removeTodo(index)">
+                            <button class="icon" @click="removeTodo(index)" aria-label="Remove task">
                                 <font-awesome-icon icon="trash" />
                             </button>
-                            <button class="icon" @click="toggleCompleteTodo(index)">
+                            <button class="icon" @click="toggleCompleteTodo(index)" aria-label="Mark task as completed">
                                 <font-awesome-icon icon="check" />
                             </button>
                         </div>
@@ -184,6 +186,10 @@
     background: inherit
 }
 
+.visually-hidden {
+    visibility: hidden;
+}
+
 @media (max-width: 700px) {
     .container {
         padding: 0 20px;
@@ -206,6 +212,7 @@
         width: 45px;
         height: 45px;
         font-size: 12px;
+        top: 20px;
     }
 
     .todos {
