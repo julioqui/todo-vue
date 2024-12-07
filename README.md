@@ -1,9 +1,21 @@
-# Nuxt Minimal Starter
+# Todo App (Nuxt 3)
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This is a basic Todo List application built with **Nuxt 3**, **TypeScript** and **Pinia** for state management.
+Follow the instructions below to set up, run, and build the project.
+
+## Prerequisites
+
+- **Node.js** (v16.8 or higher)  
+  You can download it from [Node.js Downloads](https://nodejs.org/en/download/).
 
 ## Setup
 
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/julioqui/todo-vue.git
+   cd todo-vue
+
+2. **Install dependencies**: Use one of the following package managers:
 Make sure to install dependencies:
 
 ```bash
@@ -72,4 +84,3 @@ yarn preview
 bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
