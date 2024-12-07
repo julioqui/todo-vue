@@ -1,40 +1,38 @@
 <template>
-    <div class="main">
-
-            <h1 class="heading">Todo Page</h1>
-            <form class="input" @submit.prevent="addTodo">
-                <input 
-                    class="input__box" 
-                    type="text" 
-                    placeholder="Add new task" 
-                    v-model="task"
-                >
-                <button class="input__submit" type="submit">
-                    Go
-                </button>
-            </form>
-            <div class="todos">
-                <template v-if="todoStore.todos.length <= 0"><p class="todos__nothing">You have no tasks</p></template>
-                <template v-else>
-                        <div class="todos__single"
-                            v-for="(item, index) in todoStore.todos" 
-                            :key="index"
-                            :class="{completed: item.completed}"
-                        >
-                            <label :for="'task-' + index">{{ item.name }}</label>
-                            <div>
-                                <button class="icon" @click="removeTodo(index)">
-                                    <font-awesome-icon icon="trash" />
-                                </button>
-                                <button class="icon" @click="toggleCompleteTodo(index)">
-                                    <font-awesome-icon icon="check" />
-                                </button>
-                            </div>
+    <main class="main">
+        <h1 class="heading">Todo Page</h1>
+        <form class="input" @submit.prevent="addTodo">
+            <input 
+                class="input__box" 
+                type="text" 
+                placeholder="Add new task" 
+                v-model="task"
+            >
+            <button class="input__submit" type="submit">Go</button>
+        </form>
+        <section  class="todos">
+            <template v-if="todoStore.todos.length <= 0">
+                <p class="todos__nothing">You have no tasks</p>
+            </template>
+            <template v-else>
+                    <div class="todos__single"
+                        v-for="(item, index) in todoStore.todos" 
+                        :key="index"
+                        :class="{completed: item.completed}"
+                    >
+                        <label :for="'task-' + index">{{ item.name }}</label>
+                        <div>
+                            <button class="icon" @click="removeTodo(index)">
+                                <font-awesome-icon icon="trash" />
+                            </button>
+                            <button class="icon" @click="toggleCompleteTodo(index)">
+                                <font-awesome-icon icon="check" />
+                            </button>
                         </div>
-                </template>
-            </div>
-
-    </div>
+                    </div>
+            </template>
+        </section >
+    </main>
 </template>
 
 <script setup lang="ts">
