@@ -63,11 +63,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
 
 .main {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 30px;
 }
 
 .heading {
@@ -208,7 +208,6 @@
         width: 45px;
         height: 45px;
         font-size: 12px;
-        right: -25px;
     }
 
     .todos {
