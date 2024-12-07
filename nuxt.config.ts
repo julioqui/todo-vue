@@ -3,6 +3,12 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   modules: [
-    '@pinia/nuxt',
+    '@pinia/nuxt'
+  ],
+  css: [
+    '~/assets/styles/global.css'
+  ],
+  plugins: [
+    '~/plugins/fontawesome.ts'
   ]
 })
