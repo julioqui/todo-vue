@@ -1,22 +1,30 @@
-
-
 <template>
     <div>
         <h1>Todo Page</h1>
+        <input type="text" placeholder="Add new task" v-model="task" @keyup.enter="addTodo(task)">
         <ul>
-            <li v-for="(item, index) in todos" :key="index">{{ item }}</li>
+            <li v-for="(item, index) in todos" :key="index">
+                {{ item }}
+                <button @click="removeTodo(index)">Remove</button>
+            </li>
         </ul>
     </div>
 </template>
 
 <script setup lang="ts">
     import { ref } from "vue"
-    const todos = ref(["Buy groceries", "Study Vue", "Walk my dog"])
-</script>
+    const task = ref("")
+    const todos: Ref<string[]> = ref([])
 
-<style scoped>
-    h1 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
+    function addTodo(task: string): void {
+        const newTask: string = task.trim()
+        if (newTask) {
+            todos.value.push(newTask)
+            task = ""
+        }
     }
-</style>
+
+    function removeTodo(index: number): void {
+        todos.value.splice(index, 1)
+    }
+</script>
